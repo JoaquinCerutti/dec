@@ -2,13 +2,9 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-# Crear DataFrame con valores actualizados (coma convertida a punto)
+# DataFrame con valores actualizados (coma convertida a punto)
 data = {
     'Alternativa': ['GPT-4o', 'GPT-4 Turbo', 'Gemini Ultra 1.0', 'Llama 3', 'Claude 3 Opus', 'Gemini 1.5'],
-    'C1': [8.8, 8.8, 8.2, 7.0, 9.0, 8.0],
-    'C2': [10, 3, 3, 10, 3, 5],
-    'C3': [8, 9, 7, 6, 7, 7],
-    'C4': [8.8, 8.8, 8.6, 9.0, 8.8, 8.6],
     'C5': [88.7, 86.5, 83.7, 86.1, 86.8, 81.9],
     'C6': [53.6, 48.0, np.nan, 48.0, 50.4, np.nan],
     'C7': [76.6, 72.6, 53.2, 57.8, 60.1, 58.5],
@@ -44,3 +40,6 @@ for i, idx in enumerate(df_missing.index):
 # Mostrar tabla completa
 print("\nTabla completa con C6 imputado:")
 print(df.round(2))
+
+
+
