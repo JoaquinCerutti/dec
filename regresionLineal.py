@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-# DataFrame con valores actualizados (coma convertida a punto)
+# DataFrame con valores actualizados
 data = {
     'Alternativa': ['GPT-4o', 'GPT-4 Turbo', 'Gemini Ultra 1.0', 'Llama 3', 'Claude 3 Opus', 'Gemini 1.5'],
     'C5': [88.7, 86.5, 83.7, 86.1, 86.8, 81.9],
@@ -27,6 +27,10 @@ X_pred = df_missing.drop(columns=['Alternativa', 'C6'])
 model = LinearRegression()
 model.fit(X_train, y_train)
 
+# Calcular R²
+r2_score = model.score(X_train, y_train)
+print(f"R² del modelo: {r2_score:.4f}")
+
 # Predecir valores faltantes
 predicted_c6 = model.predict(X_pred)
 
@@ -40,6 +44,5 @@ for i, idx in enumerate(df_missing.index):
 # Mostrar tabla completa
 print("\nTabla completa con C6 imputado:")
 print(df.round(2))
-
 
 
